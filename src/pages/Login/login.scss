@@ -1,5 +1,45 @@
 @import '../../scss/main.scss';
 
-.test {
-  background-color: $color-primary;
+.login {
+  @include flexCenter;
+
+  height: inherit;
+  background-color: $color-background;
+
+  &__card {
+    display: flex;
+    border: 1px solid $color-border;
+    flex: 0 0 80%;
+    border-radius: 0.4rem;
+    box-shadow: $shadow-light;
+  }
+
+  &__description {
+    @include flexCenter;
+
+    flex-direction: column;
+    flex: 1 1 30%;
+    padding: 3rem;
+    color: $color-white;
+    background-color: $color-primary-dark;
+
+    & h1 {
+      font-size: $font-xl;
+      font-weight: 300;
+    }
+
+    & h2 {
+      font-size: $font-medium;
+      font-weight: 400;
+    }
+
+    & p {
+      text-align: center;
+    }
+  }
+
+  &__content {
+    display: flex;
+    flex: 1 1 70%;
+  }
 }
