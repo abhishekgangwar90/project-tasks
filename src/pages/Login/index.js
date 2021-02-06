@@ -1,5 +1,3 @@
-function Login() {
-  return 'login page';
-}
+import Login from './login';
 
 export default Login;
