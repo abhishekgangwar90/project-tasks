@@ -1,5 +1,6 @@
 import React from 'react';
 import Button from '../../atoms/Button';
+import Input from '../../atoms/Input';
 import './login.scss';
 
 function Login() {
@@ -21,10 +22,38 @@ function Login() {
           />
         </div>
         <div className="login__content">
-          <h3>Create Account</h3>
-          <p>or use your email for registration.</p>
+          <h3 className="u-margin-bottom-large">Create Account</h3>
+          <p className="u-margin-bottom-small">
+            or use your email for registration.
+          </p>
           <form action="/" className="login__form">
-            hello
+            <Input
+              name="Name"
+              classes="u-margin-bottom-small"
+              placeholder="Enter Your Name"
+              type="text"
+              required
+            />
+            <Input
+              name="Email"
+              classes="u-margin-bottom-small"
+              placeholder="Enter Email Address"
+              type="email"
+              required
+            />
+            <Input
+              name="Password"
+              classes="u-margin-bottom-small"
+              placeholder="Enter password"
+              type="password"
+              required
+            />
+            <Button
+              title="Sign Up"
+              color="green"
+              classes="u-margin-top-medium u-margin-bottom-medium"
+              animated
+            />
           </form>
         </div>
       </div>

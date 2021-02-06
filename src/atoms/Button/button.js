@@ -3,13 +3,14 @@ import PropTypes from 'prop-types';
 
 import './button.scss';
 
-function Button({ title, animated, classes, color }) {
+function Button({ title, animated, classes, color, ...otherProps }) {
   return (
     <button
       type="button"
       className={`btn btn--${color} btn--large ${
         animated && 'btn--animated'
       } ${classes}`}
+      {...otherProps}
     >
       {title}
     </button>

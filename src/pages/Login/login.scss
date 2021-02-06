@@ -9,7 +9,7 @@
     &__card {
         display: flex;
         border: 1px solid $color-border;
-        flex: 0 0 80%;
+        flex: 0 0 70%;
         border-radius: 0.4rem;
         box-shadow: $shadow-light;
     }
@@ -57,5 +57,12 @@
             font-size: $font-small;
             color: $color-text;
         }
+    }
+
+    &__form {
+        @include flexCenter;
+
+        flex-direction: column;
+        width: 50%;
     }
 }

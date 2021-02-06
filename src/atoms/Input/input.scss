@@ -1,0 +1,16 @@
+@import '../../scss/main.scss';
+
+.input {
+    font-size: 1.6rem;
+    font-family: inherit;
+    padding: 1.5rem 3rem;
+    border-radius: 0.4rem;
+    border: 1px solid $color-border;
+    color: $color-text;
+    outline: none;
+    width: 100%;
+
+    &::-webkit-input-placeholder {
+        color: $color-grey-dark-2;
+    }
+}
