@@ -11,6 +11,7 @@ function Button({ title, animated, classes, color, ...otherProps }) {
         animated && 'btn--animated'
       } ${classes}`}
       {...otherProps}
+      data-test="button-component"
     >
       {title}
     </button>
