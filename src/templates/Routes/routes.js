@@ -1,7 +1,7 @@
 import React from 'react';
-import {BrowserRouter as Router, Switch, Route} from 'react-router-dom'
+import {BrowserRouter as Router, Switch, Route} from 'react-router-dom';
 
-import {appRoutes} from '../../config/routeConfig';
+import { appRoutes } from '../../config/routeConfig';
 
 function Routes(){
     return <Router basename="/">
