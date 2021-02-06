@@ -1,45 +1,61 @@
 @import '../../scss/main.scss';
 
 .login {
-  @include flexCenter;
-
-  height: inherit;
-  background-color: $color-background;
-
-  &__card {
-    display: flex;
-    border: 1px solid $color-border;
-    flex: 0 0 80%;
-    border-radius: 0.4rem;
-    box-shadow: $shadow-light;
-  }
-
-  &__description {
     @include flexCenter;
 
-    flex-direction: column;
-    flex: 1 1 30%;
-    padding: 3rem;
-    color: $color-white;
-    background-color: $color-primary-dark;
+    height: inherit;
+    background-color: $color-background;
 
-    & h1 {
-      font-size: $font-xl;
-      font-weight: 300;
+    &__card {
+        display: flex;
+        border: 1px solid $color-border;
+        flex: 0 0 80%;
+        border-radius: 0.4rem;
+        box-shadow: $shadow-light;
     }
 
-    & h2 {
-      font-size: $font-medium;
-      font-weight: 400;
+    &__description {
+        @include flexCenter;
+
+        flex-direction: column;
+        flex: 1 1 30%;
+        padding: 5rem 3rem;
+        font-size: $font-normal;
+        border-radius: 0.4rem 0 0 0.4rem;
+        color: $color-white;
+        background-color: $color-primary-dark;
+
+        & h1 {
+            font-size: $font-xl;
+            font-weight: 300;
+        }
+
+        & h2 {
+            font-size: $font-large;
+            font-weight: 900;
+        }
+
+        & p {
+            text-align: center;
+        }
     }
 
-    & p {
-      text-align: center;
-    }
-  }
+    &__content {
+        @include flexCenter;
 
-  &__content {
-    display: flex;
-    flex: 1 1 70%;
-  }
+        flex-direction: column;
+        flex: 1 1 70%;
+        padding: 5rem 3rem;
+
+        & h3 {
+            font-size: $font-xl;
+            font-weight: 900;
+            color: $color-primary-dark;
+        }
+
+        & p {
+            font-size: $font-small;
+            color: $color-text;
+        }
+    }
 }
