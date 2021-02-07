@@ -1,21 +1,21 @@
 *,
 *::before,
 *::after {
-    margin: 0;
-    padding: 0;
-    box-sizing: inherit;
+  margin: 0;
+  padding: 0;
+  box-sizing: inherit;
 }
 
 html {
-    font-size: 62.5%;
-    height: 100%;
+  font-size: 62.5%;
+  height: 100%;
 }
 
 body {
-    box-sizing: border-box;
-    height: inherit;
+  box-sizing: border-box;
+  height: inherit;
 }
 
 #root {
-    height: inherit;
+  height: inherit;
 }

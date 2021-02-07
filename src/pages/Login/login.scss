@@ -1,68 +1,68 @@
 @import '../../scss/main.scss';
 
 .login {
+  @include flexCenter;
+
+  height: inherit;
+  background-color: $color-background;
+
+  &__card {
+    display: flex;
+    border: 1px solid $color-border;
+    flex: 0 0 70%;
+    border-radius: 0.4rem;
+    box-shadow: $shadow-light;
+  }
+
+  &__description {
     @include flexCenter;
 
-    height: inherit;
-    background-color: $color-background;
+    flex-direction: column;
+    flex: 1 1 30%;
+    padding: 5rem 3rem;
+    font-size: $font-normal;
+    border-radius: 0.4rem 0 0 0.4rem;
+    color: $color-white;
+    background-color: $color-primary-dark;
 
-    &__card {
-        display: flex;
-        border: 1px solid $color-border;
-        flex: 0 0 70%;
-        border-radius: 0.4rem;
-        box-shadow: $shadow-light;
+    & h1 {
+      font-size: $font-xl;
+      font-weight: 300;
     }
 
-    &__description {
-        @include flexCenter;
-
-        flex-direction: column;
-        flex: 1 1 30%;
-        padding: 5rem 3rem;
-        font-size: $font-normal;
-        border-radius: 0.4rem 0 0 0.4rem;
-        color: $color-white;
-        background-color: $color-primary-dark;
-
-        & h1 {
-            font-size: $font-xl;
-            font-weight: 300;
-        }
-
-        & h2 {
-            font-size: $font-large;
-            font-weight: 900;
-        }
-
-        & p {
-            text-align: center;
-        }
+    & h2 {
+      font-size: $font-large;
+      font-weight: 900;
     }
 
-    &__content {
-        @include flexCenter;
+    & p {
+      text-align: center;
+    }
+  }
 
-        flex-direction: column;
-        flex: 1 1 70%;
-        padding: 5rem 3rem;
+  &__content {
+    @include flexCenter;
 
-        & h3 {
-            font-size: $font-xl;
-            font-weight: 900;
-            color: $color-primary-dark;
-        }
+    flex-direction: column;
+    flex: 1 1 70%;
+    padding: 5rem 3rem;
 
-        & p {
-            font-size: $font-small;
-            color: $color-text;
-        }
+    & h3 {
+      font-size: $font-xl;
+      font-weight: 900;
+      color: $color-primary-dark;
     }
 
-    &__form {
-        @include flexCenter;
-
-        flex-direction: column;
-        width: 50%;
+    & p {
+      font-size: $font-small;
+      color: $color-text;
     }
+  }
+
+  &__form {
+    @include flexCenter;
+
+    flex-direction: column;
+    width: 50%;
+  }
 }
