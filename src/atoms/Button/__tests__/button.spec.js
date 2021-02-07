@@ -1,11 +1,7 @@
 import React from 'react';
 import { shallow } from 'enzyme';
 import Button from '../button';
-
-function findByAttr(component, attr) {
-  const wrapper = component.find(`[data-test='${attr}']`);
-  return wrapper;
-}
+import { checkProps, findByAttr } from '../../../utils/testUtils';
 
 describe('button', () => {
   let wrapper;
@@ -13,6 +9,7 @@ describe('button', () => {
   beforeEach(() => {
     const props = {
       title: 'test button',
+      animated: true,
     };
     wrapper = shallow(<Button {...props} />);
   });
@@ -21,4 +18,22 @@ describe('button', () => {
     const button = findByAttr(wrapper, 'button-component');
     expect(button.length).toBe(1);
   });
+
+  it('render the title correctly', () => {
+    const button = findByAttr(wrapper, 'button-component');
+    expect(button.text()).toBe('test button');
+  });
+
+  it('fails when passed a color except white and green', () => {
+    const invalidProps = {
+      color: 'yellow',
+    };
+    const propsError = checkProps(Button, invalidProps);
+    expect(propsError).toBeTruthy();
+  });
+
+  // it('enables animation', () => {
+  //   const button = findByAttr(wrapper, 'button-component');
+  //   expect(button).toHaveClass('btn--animated')
+  // });
 });
