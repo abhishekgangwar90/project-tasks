@@ -9,7 +9,7 @@ function Input({ name, classes, ...otherProps }) {
       <input
         name={name}
         id={name}
-        autoComplete="none"
+        autoComplete="off"
         className={`input ${classes}`}
         {...otherProps}
       />
