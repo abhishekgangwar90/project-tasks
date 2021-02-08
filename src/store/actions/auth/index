@@ -1,5 +1,5 @@
 /* eslint-disable import/prefer-default-export */
-import { SIGN_UP, SIGN_UP_FAILURE, SIGN_UP_SUCCESS } from '../constants';
+import { SIGN_UP, SIGN_UP_FAILURE, SIGN_UP_SUCCESS } from '../../constants';
 
 export const signUpAction = (payload) => {
   return {
