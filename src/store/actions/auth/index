@@ -8,14 +8,14 @@ export const signUpAction = (payload) => {
   };
 };
 
-export const signUpActionSuccess = (payload) => {
+export const signUpSuccessAction = (payload) => {
   return {
     type: SIGN_UP_SUCCESS,
     payload,
   };
 };
 
-export const signUpActionFailure = (payload) => {
+export const signUpFailureAction = (payload) => {
   return {
     type: SIGN_UP_FAILURE,
     payload,

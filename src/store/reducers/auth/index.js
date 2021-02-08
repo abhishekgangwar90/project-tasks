@@ -1,6 +1,7 @@
 import { SIGN_UP, SIGN_UP_FAILURE, SIGN_UP_SUCCESS } from '../../constants';
 
 const initialState = {
+  isLoading: false,
   authToken: null,
   isLoggedIn: false,
 };
