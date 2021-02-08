@@ -16,12 +16,12 @@ function CreateAccount({ onSignInClick }) {
   );
 
   const handleSignUp = () => {
-    dispatch({
-      type: createAccountConstants.SHOW_SIGNUP_ERROR,
-      payload: {
-        error: 'unable to signup, please try after sometime.',
-      },
-    });
+    // dispatch({
+    //   type: createAccountConstants.SHOW_SIGNUP_ERROR,
+    //   payload: {
+    //     error: 'unable to signup, please try after sometime.',
+    //   },
+    // });
   };
 
   const onFieldChange = (field, e) => {
