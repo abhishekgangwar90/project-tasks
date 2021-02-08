@@ -1,0 +1,16 @@
+@import './../../scss/main.scss';
+
+.error {
+  display: flex;
+  align-items: center;
+
+  &__text {
+    flex-direction: row;
+    padding: 0.5rem 1rem;
+    color: $color-error-dark;
+
+    &--small {
+      font-size: 1.4rem;
+    }
+  }
+}

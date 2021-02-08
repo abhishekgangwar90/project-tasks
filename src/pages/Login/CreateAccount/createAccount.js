@@ -7,6 +7,7 @@ import {
   initialState,
   useCreateAccountReducer,
 } from './useCreateAccountReducer';
+import Error from '../../../molecules/Error';
 
 function CreateAccount({ onSignInClick }) {
   const [state, dispatch] = React.useReducer(
@@ -14,7 +15,14 @@ function CreateAccount({ onSignInClick }) {
     initialState
   );
 
-  const handleSignUp = () => {};
+  const handleSignUp = () => {
+    dispatch({
+      type: createAccountConstants.SHOW_SIGNUP_ERROR,
+      payload: {
+        error: 'unable to signup, please try after sometime.',
+      },
+    });
+  };
 
   const onFieldChange = (field, e) => {
     dispatch({
@@ -76,6 +84,7 @@ function CreateAccount({ onSignInClick }) {
             onChange={(e) => onFieldChange('password', e)}
             required
           />
+          {state.error && <Error isTextError error={{ header: state.error }} />}
           <Button
             type="submit"
             title="Sign Up"

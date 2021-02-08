@@ -1,5 +1,6 @@
 /* eslint-disable import/prefer-default-export */
 export const initialState = {
+  error: '',
   name: '',
   email: '',
   password: '',
@@ -17,6 +18,14 @@ export function useCreateAccountReducer(state, { type, payload }) {
       return {
         ...state,
         [field]: value,
+        error: null,
+      };
+    }
+
+    case createAccountConstants.SHOW_SIGNUP_ERROR: {
+      return {
+        ...state,
+        error: payload.error,
       };
     }
 
