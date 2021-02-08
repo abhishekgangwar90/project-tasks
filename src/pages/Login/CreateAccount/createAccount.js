@@ -2,8 +2,30 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import Button from '../../../atoms/Button';
 import Input from '../../../atoms/Input';
+import {
+  createAccountConstants,
+  initialState,
+  useCreateAccountReducer,
+} from './useCreateAccountReducer';
 
 function CreateAccount({ onSignInClick }) {
+  const [state, dispatch] = React.useReducer(
+    useCreateAccountReducer,
+    initialState
+  );
+
+  const handleSignUp = () => {};
+
+  const onFieldChange = (field, e) => {
+    dispatch({
+      type: createAccountConstants.CHANGE_FIELD_ACTION,
+      payload: {
+        field,
+        value: e.target.value,
+      },
+    });
+  };
+
   return (
     <>
       <div className="login__description">
@@ -32,6 +54,8 @@ function CreateAccount({ onSignInClick }) {
             classes="u-margin-bottom-small"
             placeholder="Enter Your Name"
             type="text"
+            value={state.name}
+            onChange={(e) => onFieldChange('name', e)}
             required
           />
           <Input
@@ -39,6 +63,8 @@ function CreateAccount({ onSignInClick }) {
             classes="u-margin-bottom-small"
             placeholder="Enter Email Address"
             type="email"
+            value={state.email}
+            onChange={(e) => onFieldChange('email', e)}
             required
           />
           <Input
@@ -46,13 +72,17 @@ function CreateAccount({ onSignInClick }) {
             classes="u-margin-bottom-small"
             placeholder="Enter password"
             type="password"
+            value={state.password}
+            onChange={(e) => onFieldChange('password', e)}
             required
           />
           <Button
+            type="submit"
             title="Sign Up"
             color="green"
             classes="u-margin-top-medium u-margin-bottom-medium"
             animated
+            onClick={handleSignUp}
           />
         </form>
       </div>
