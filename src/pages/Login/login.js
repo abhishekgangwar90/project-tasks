@@ -5,12 +5,20 @@ import CreateAccount from './CreateAccount/createAccount';
 import SignIn from './SignIn/signIn';
 
 function Login() {
-  const [showLogin, canShowLogin] = React.useState(false);
+  const [showLogin, setShowLogin] = React.useState(true);
+
+  const handleComponentSwitch = (value) => {
+    setShowLogin(value);
+  };
 
   return (
     <div className="login">
-      <div className="login__card">
-        {showLogin ? <CreateAccount canShowLogin={canShowLogin} /> : <SignIn />}
+      <div className={`login__card ${!showLogin && 'login__card--reverse'}`}>
+        {showLogin ? (
+          <CreateAccount onSignInClick={handleComponentSwitch} />
+        ) : (
+          <SignIn onSignUpClick={handleComponentSwitch} />
+        )}
       </div>
     </div>
   );

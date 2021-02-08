@@ -1,21 +1,24 @@
 import React from 'react';
+import PropTypes from 'prop-types';
+
 import Button from '../../../atoms/Button';
 import Input from '../../../atoms/Input';
 
-function SignIn() {
+function SignIn({ onSignUpClick }) {
   return (
     <>
       <div className="login__description">
         <h1>TASKY</h1>
         <h2 className="u-margin-top-large">Hello, Friend!</h2>
         <p className="u-margin-top-small u-margin-bottom-small">
-          Enter your personal details and start your journey with us.
+          Enter your personal details and kick start your journey with us.
         </p>
         <Button
           title="Sign Up"
           color="green"
           classes="u-margin-top-large u-margin-bottom-large"
           animated
+          onClick={() => onSignUpClick(true)}
         />
       </div>
       <div className="login__content">
@@ -47,5 +50,13 @@ function SignIn() {
     </>
   );
 }
+
+SignIn.defaultProps = {
+  onSignUpClick: () => {},
+};
+
+SignIn.propTypes = {
+  onSignUpClick: PropTypes.func,
+};
 
 export default SignIn;

@@ -12,6 +12,12 @@
     flex: 0 0 70%;
     border-radius: 0.4rem;
     box-shadow: $shadow-light;
+
+    transition: all 0.4s ease;
+  }
+
+  &__card--reverse {
+    flex-direction: row-reverse;
   }
 
   &__description {
