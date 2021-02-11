@@ -1,3 +1,10 @@
+import { connect } from 'react-redux';
 import Layout from './layout';
 
-export default Layout;
+const mapStateToProps = (state) => {
+  return state;
+};
+
+const dispatchActions = {};
+
+export default connect(mapStateToProps, dispatchActions)(Layout);
