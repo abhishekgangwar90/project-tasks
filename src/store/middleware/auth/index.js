@@ -1,3 +1,4 @@
+/* eslint-disable no-debugger */
 /* eslint-disable import/prefer-default-export */
 import { post } from '../../../apis';
 import {
@@ -9,6 +10,7 @@ import {
   signInFailureAction,
 } from '../../actions';
 import { apiEndPoints } from '../../../constants/apiEndPoints';
+import { parseError } from '../ErrorHandler';
 
 export function signUpActionAsync(data) {
   return (dispatch) => {
@@ -16,7 +18,7 @@ export function signUpActionAsync(data) {
     return post(apiEndPoints.signUp, data)
       .then((res) => res.data)
       .then((res) => dispatch(signUpSuccessAction(res)))
-      .catch((err) => dispatch(signUpFailureAction(err)));
+      .catch((err) => dispatch(signUpFailureAction(parseError(err))));
   };
 }
 
@@ -26,6 +28,6 @@ export function signInActionAsync(data) {
     return post(apiEndPoints.signIn, data)
       .then((res) => res.data)
       .then((res) => dispatch(signInSuccessAction(res)))
-      .catch((err) => dispatch(signInFailureAction(err)));
+      .catch((err) => dispatch(signInFailureAction(parseError(err))));
   };
 }

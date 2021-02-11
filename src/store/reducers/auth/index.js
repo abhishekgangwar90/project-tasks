@@ -1,5 +1,6 @@
 import {
   SIGN_IN,
+  SIGN_IN_FAILURE,
   SIGN_IN_SUCCESS,
   SIGN_UP,
   SIGN_UP_FAILURE,
@@ -24,6 +25,7 @@ function authReducer(state = initialState, { type, payload }) {
     case SIGN_UP_SUCCESS: {
       return {
         ...state,
+        isLoading: false,
         authToken: payload.authToken,
       };
     }
@@ -31,6 +33,7 @@ function authReducer(state = initialState, { type, payload }) {
     case SIGN_UP_FAILURE: {
       return {
         ...state,
+        isLoading: false,
         error: payload.error,
       };
     }
@@ -45,8 +48,17 @@ function authReducer(state = initialState, { type, payload }) {
     case SIGN_IN_SUCCESS: {
       return {
         ...state,
-        isLoggedIn: false,
+        isLoading: false,
+        isLoggedIn: true,
         authToken: payload.authToken,
+      };
+    }
+
+    case SIGN_IN_FAILURE: {
+      return {
+        ...state,
+        isLoading: false,
+        error: payload.error,
       };
     }
 
