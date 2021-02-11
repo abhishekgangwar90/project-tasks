@@ -65,6 +65,7 @@
     "jest-enzyme": "^7.1.2",
     "node-sass": "^4.14.1",
     "prettier": "^2.2.1",
-    "prop-types": "^15.7.2"
+    "prop-types": "^15.7.2",
+    "redux-devtools-extension": "^2.13.8"
   }
 }

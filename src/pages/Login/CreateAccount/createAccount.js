@@ -9,13 +9,15 @@ import {
 } from './useCreateAccountReducer';
 import Error from '../../../molecules/Error';
 
-function CreateAccount({ onSignInClick }) {
+function CreateAccount({ onSignInClick, handleSignUp }) {
   const [state, dispatch] = React.useReducer(
     useCreateAccountReducer,
     initialState
   );
 
-  const handleSignUp = () => {
+  const onSignUpClick = (e) => {
+    e.preventDefault();
+    handleSignUp(state);
     // dispatch({
     //   type: createAccountConstants.SHOW_SIGNUP_ERROR,
     //   payload: {
@@ -91,7 +93,7 @@ function CreateAccount({ onSignInClick }) {
             color="green"
             classes="u-margin-top-medium u-margin-bottom-medium"
             animated
-            onClick={handleSignUp}
+            onClick={onSignUpClick}
           />
         </form>
       </div>
@@ -105,6 +107,7 @@ CreateAccount.defaultProps = {
 
 CreateAccount.propTypes = {
   onSignInClick: PropTypes.func,
+  handleSignUp: PropTypes.func.isRequired,
 };
 
 export default CreateAccount;

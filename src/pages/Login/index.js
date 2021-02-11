@@ -1,3 +1,17 @@
-import Login from './login';
+import { connect } from 'react-redux';
 
-export default Login;
+import Login from './login';
+import { signUpActionAsync } from '../../store/middleware';
+
+const mapStateToProps = (store) => {
+  const { auth } = store;
+  return {
+    auth,
+  };
+};
+
+const dispatchActions = {
+  signUpActionAsync,
+};
+
+export default connect(mapStateToProps, dispatchActions)(Login);

@@ -10,6 +10,7 @@ export function signUpActionAsync(url, data) {
   return (dispatch) => {
     dispatch(signUpAction());
     return post(url, data)
+      .then((res) => res.data)
       .then((res) => dispatch(signUpSuccessAction(res)))
       .catch((err) => dispatch(signUpFailureAction(err)));
   };

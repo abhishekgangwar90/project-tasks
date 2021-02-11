@@ -9,11 +9,17 @@ const initialState = {
 function authReducer(state = initialState, { type, payload }) {
   switch (type) {
     case SIGN_UP: {
-      return payload;
+      return {
+        ...state,
+        isLoading: true,
+      };
     }
 
     case SIGN_UP_SUCCESS: {
-      return state;
+      return {
+        ...state,
+        authToken: payload.authToken,
+      };
     }
 
     case SIGN_UP_FAILURE: {

@@ -1,4 +1,4 @@
 /* eslint-disable import/prefer-default-export */
-export const apiConstants = {
+export const apiEndPoints = {
   signUp: '/users/new',
 };
