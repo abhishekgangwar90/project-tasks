@@ -3,8 +3,32 @@ import PropTypes from 'prop-types';
 
 import Button from '../../../atoms/Button';
 import Input from '../../../atoms/Input';
+import {
+  initialState,
+  signInConstants,
+  signInReducer,
+} from './useSignInReducer';
 
-function SignIn({ onSignUpClick }) {
+function SignIn({ onSignUpClick, handleSignIn }) {
+  const [state, dispatch] = React.useReducer(signInReducer, initialState);
+
+  const onFormSubmit = (e) => {
+    e.preventDefault();
+    if (state.email && state.password) {
+      handleSignIn(state);
+    }
+  };
+
+  const onFieldChange = (field, e) => {
+    dispatch({
+      type: signInConstants.CHANGE_FIELD_ACTION,
+      payload: {
+        field,
+        value: e.target.value,
+      },
+    });
+  };
+
   return (
     <>
       <div className="login__description">
@@ -24,11 +48,13 @@ function SignIn({ onSignUpClick }) {
       <div className="login__content">
         <h3 className="u-margin-bottom-large">Sign in to TASKY</h3>
         <p className="u-margin-bottom-small">or use your email for login.</p>
-        <form action="/" className="login__form">
+        <form onSubmit={onFormSubmit} className="login__form">
           <Input
             name="Email"
             classes="u-margin-bottom-small"
             placeholder="Enter Email Address"
+            value={state.email}
+            onChange={(e) => onFieldChange('email', e)}
             type="email"
             required
           />
@@ -37,6 +63,8 @@ function SignIn({ onSignUpClick }) {
             classes="u-margin-bottom-small"
             placeholder="Enter password"
             type="password"
+            value={state.password}
+            onChange={(e) => onFieldChange('password', e)}
             required
           />
           <Button
@@ -57,6 +85,7 @@ SignIn.defaultProps = {
 
 SignIn.propTypes = {
   onSignUpClick: PropTypes.func,
+  handleSignIn: PropTypes.func.isRequired,
 };
 
 export default SignIn;

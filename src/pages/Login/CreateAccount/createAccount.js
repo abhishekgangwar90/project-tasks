@@ -15,7 +15,7 @@ function CreateAccount({ onSignInClick, handleSignUp }) {
     initialState
   );
 
-  const onSignUpClick = (e) => {
+  const onFormSubmit = (e) => {
     e.preventDefault();
     if (state.name && state.email && state.password) {
       handleSignUp(state);
@@ -54,7 +54,7 @@ function CreateAccount({ onSignInClick, handleSignUp }) {
         <p className="u-margin-bottom-small">
           or use your email for registration.
         </p>
-        <form onSubmit={onSignUpClick} className="login__form">
+        <form onSubmit={onFormSubmit} className="login__form">
           <Input
             name="Name"
             classes="u-margin-bottom-small"
