@@ -17,13 +17,9 @@ function CreateAccount({ onSignInClick, handleSignUp }) {
 
   const onSignUpClick = (e) => {
     e.preventDefault();
-    handleSignUp(state);
-    // dispatch({
-    //   type: createAccountConstants.SHOW_SIGNUP_ERROR,
-    //   payload: {
-    //     error: 'unable to signup, please try after sometime.',
-    //   },
-    // });
+    if (state.name && state.email && state.password) {
+      handleSignUp(state);
+    }
   };
 
   const onFieldChange = (field, e) => {
@@ -58,7 +54,7 @@ function CreateAccount({ onSignInClick, handleSignUp }) {
         <p className="u-margin-bottom-small">
           or use your email for registration.
         </p>
-        <form action="/" className="login__form">
+        <form onSubmit={onSignUpClick} className="login__form">
           <Input
             name="Name"
             classes="u-margin-bottom-small"
@@ -93,7 +89,6 @@ function CreateAccount({ onSignInClick, handleSignUp }) {
             color="green"
             classes="u-margin-top-medium u-margin-bottom-medium"
             animated
-            onClick={onSignUpClick}
           />
         </form>
       </div>
