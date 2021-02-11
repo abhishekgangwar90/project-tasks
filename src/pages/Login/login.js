@@ -4,9 +4,8 @@ import PropTypes from 'prop-types';
 import './login.scss';
 import CreateAccount from './CreateAccount/createAccount';
 import SignIn from './SignIn/signIn';
-import { apiEndPoints } from '../../constants/apiEndPoints';
 
-function Login({ signUpActionAsync }) {
+function Login({ signUpActionAsync, signInActionAsync }) {
   const [showLogin, setShowLogin] = React.useState(true);
 
   const handleComponentSwitch = (value) => {
@@ -14,10 +13,12 @@ function Login({ signUpActionAsync }) {
   };
 
   const handleSignUp = (data) => {
-    signUpActionAsync(apiEndPoints.signUp, data);
+    signUpActionAsync(data);
   };
 
-  const handleSignIn = () => {};
+  const handleSignIn = (data) => {
+    signInActionAsync(data);
+  };
 
   return (
     <div className="login">
@@ -42,6 +43,7 @@ Login.defaultProps = {};
 
 Login.propTypes = {
   signUpActionAsync: PropTypes.func.isRequired,
+  signInActionAsync: PropTypes.func.isRequired,
 };
 
 export default Login;

@@ -68,6 +68,7 @@ function SignIn({ onSignUpClick, handleSignIn }) {
             required
           />
           <Button
+            type="submit"
             title="Sign In"
             color="green"
             classes="u-margin-top-medium u-margin-bottom-medium"

@@ -1,7 +1,7 @@
 import { connect } from 'react-redux';
 
 import Login from './login';
-import { signUpActionAsync } from '../../store/middleware';
+import { signUpActionAsync, signInActionAsync } from '../../store/middleware';
 
 const mapStateToProps = (store) => {
   const { auth } = store;
@@ -12,6 +12,7 @@ const mapStateToProps = (store) => {
 
 const dispatchActions = {
   signUpActionAsync,
+  signInActionAsync,
 };
 
 export default connect(mapStateToProps, dispatchActions)(Login);
