@@ -17,6 +17,8 @@ function Login({ signUpActionAsync }) {
     signUpActionAsync(apiEndPoints.signUp, data);
   };
 
+  const handleSignIn = () => {};
+
   return (
     <div className="login">
       <div className={`login__card ${!showLogin && 'login__card--reverse'}`}>
@@ -26,7 +28,10 @@ function Login({ signUpActionAsync }) {
             onSignInClick={handleComponentSwitch}
           />
         ) : (
-          <SignIn onSignUpClick={handleComponentSwitch} />
+          <SignIn
+            handleSignIn={handleSignIn}
+            onSignUpClick={handleComponentSwitch}
+          />
         )}
       </div>
     </div>
