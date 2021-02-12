@@ -1,3 +1,4 @@
+/* eslint-disable prettier/prettier */
 /* eslint-disable no-debugger */
 /* eslint-disable import/prefer-default-export */
 import { post } from '../../../apis';
@@ -11,7 +12,7 @@ import {
 } from '../../actions';
 import { apiEndPoints } from '../../../constants/apiEndPoints';
 import { parseError } from '../ErrorHandler';
-import { setDataInStorage } from '../../../common/storage/storageConfig';
+import { setDataInStorage } from '../../../common/storage';
 
 export function signUpActionAsync(data) {
   return (dispatch) => {
@@ -19,7 +20,10 @@ export function signUpActionAsync(data) {
     return post(apiEndPoints.signUp, data)
       .then((res) => res.data)
       .then((res) => {
-        setDataInStorage('auth', res.authToken);
+        setDataInStorage({
+          isLoggedIn: true,
+          authToken: res.authToken,
+        });
         dispatch(signUpSuccessAction(res));
       })
       .catch((err) => dispatch(signUpFailureAction(parseError(err))));
@@ -32,7 +36,10 @@ export function signInActionAsync(data) {
     return post(apiEndPoints.signIn, data)
       .then((res) => res.data)
       .then((res) => {
-        setDataInStorage('auth', res.authToken);
+        setDataInStorage({
+          isLoggedIn: true,
+          authToken: res.authToken,
+        });
         dispatch(signInSuccessAction(res));
       })
       .catch((err) => dispatch(signInFailureAction(parseError(err))));
