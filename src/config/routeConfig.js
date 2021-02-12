@@ -1,3 +1,4 @@
+import Dashboard from '../pages/Dashboard';
 import Login from '../pages/Login';
 
 // eslint-disable-next-line import/prefer-default-export
@@ -12,9 +13,9 @@ export const appRoutes = {
   ],
   private: [
     {
-      id: 'main',
+      id: 'dashboard',
       path: '/',
-      component: () => 'Main Page',
+      component: Dashboard,
     },
   ],
 };
