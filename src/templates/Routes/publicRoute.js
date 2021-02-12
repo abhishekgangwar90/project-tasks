@@ -24,7 +24,7 @@ PublicRoute.defaultProps = {
 };
 
 PublicRoute.propTypes = {
-  component: PropTypes.element.isRequired,
+  component: PropTypes.instanceOf(Object).isRequired,
   canRedirect: PropTypes.bool,
 };
 

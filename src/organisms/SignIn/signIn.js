@@ -1,13 +1,13 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-import Button from '../../../atoms/Button';
-import Input from '../../../atoms/Input';
+import Button from '../../atoms/Button';
+import Input from '../../atoms/Input';
 import {
   initialState,
   signInConstants,
   signInReducer,
-} from './useSignInReducer';
+} from './Reducer/useSignInReducer';
 
 function SignIn({ onSignUpClick, handleSignIn }) {
   const [state, dispatch] = React.useReducer(signInReducer, initialState);

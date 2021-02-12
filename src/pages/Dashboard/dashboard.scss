@@ -1,0 +1,29 @@
+@import '../../scss/main.scss';
+
+.dashboard {
+  height: inherit;
+  display: flex;
+  flex-direction: column;
+
+  &__header {
+    display: flex;
+    background-color: $color-primary;
+    padding: 2rem 6rem;
+    color: $color-text;
+  }
+
+  &__main {
+    display: flex;
+    flex-direction: row;
+  }
+
+  &__nav {
+    display: flex;
+    flex: 1 1 20%;
+  }
+
+  &__content {
+    display: flex;
+    flex: 1 1 80%;
+  }
+}

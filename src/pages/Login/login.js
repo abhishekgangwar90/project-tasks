@@ -2,8 +2,8 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 import './login.scss';
-import CreateAccount from './CreateAccount/createAccount';
-import SignIn from './SignIn/signIn';
+import CreateAccount from '../../organisms/CreateAccount';
+import SignIn from '../../organisms/SignIn';
 
 function Login({ signUpActionAsync, signInActionAsync }) {
   const [showLogin, setShowLogin] = React.useState(true);

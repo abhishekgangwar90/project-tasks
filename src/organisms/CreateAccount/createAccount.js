@@ -1,13 +1,13 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import Button from '../../../atoms/Button';
-import Input from '../../../atoms/Input';
+import Button from '../../atoms/Button';
+import Input from '../../atoms/Input';
 import {
   createAccountConstants,
   initialState,
   useCreateAccountReducer,
-} from './useCreateAccountReducer';
-import Error from '../../../molecules/Error';
+} from './Reducer/useCreateAccountReducer';
+import Error from '../../molecules/Error';
 
 function CreateAccount({ onSignInClick, handleSignUp }) {
   const [state, dispatch] = React.useReducer(
