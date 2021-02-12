@@ -1,0 +1,10 @@
+@import '../../scss/main.scss';
+
+.dashboard {
+  &__header {
+    display: flex;
+    background-color: $color-primary-dark;
+    padding: 2rem 6rem;
+    color: $color-text;
+  }
+}
