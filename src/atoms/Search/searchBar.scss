@@ -1,0 +1,25 @@
+@import '../../scss/main.scss';
+
+.search {
+  @include flexCenter;
+
+  & input {
+    font-size: 1.6rem;
+    font-family: inherit;
+    padding: 1rem 3rem;
+    border-radius: 10rem;
+    border: 1px solid $color-border;
+    color: $color-text;
+    outline: none;
+    width: 80%;
+  }
+
+  &__icon {
+    width: 2rem;
+    margin: -4rem;
+  }
+
+  &::-webkit-input-placeholder {
+    color: $color-grey-dark-2;
+  }
+}

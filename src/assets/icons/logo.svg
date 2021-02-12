@@ -1,6 +1,3 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="119.583" height="120.445" viewBox="0 0 119.583 120.445">
-  <g id="Group_36" data-name="Group 36" transform="translate(3043.367 -1682.509)">
-    <rect id="Rectangle_41" data-name="Rectangle 41" width="88" height="83" rx="20" transform="matrix(0.616, 0.788, -0.788, 0.616, -2977.963, 1682.509)" fill="#7ed56f"/>
-    <path id="Icon_material-done" data-name="Icon material-done" d="M23.264,41.2,9.641,28.2,5.1,32.536,23.264,49.864,62.186,12.732,57.645,8.4Z" transform="translate(-3017.1 1713.403)" fill="#fff"/>
-  </g>
+<svg id="Component_12_4" data-name="Component 12 – 4" xmlns="http://www.w3.org/2000/svg" width="120" height="38" viewBox="0 0 120 38">
+  <text id="TASKY" transform="translate(2 35)" fill="#fff" font-size="40" font-family="HelveticaNeue-Thin, Helvetica Neue" font-weight="200"><tspan x="0" y="0">TASKY</tspan></text>
 </svg>
