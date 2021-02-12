@@ -1,7 +1,10 @@
 import Cookies from 'js-cookies';
 
 export const setDataInStorage = (key, value) => {
-  Cookies.setItem(key, value, { secure: true, httpOnly: false });
+  Cookies.setItem(key, JSON.stringify(value), {
+    secure: true,
+    httpOnly: false,
+  });
 };
 
 export const getFromStorage = (key) => {

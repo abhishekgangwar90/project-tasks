@@ -11,13 +11,17 @@ import {
 } from '../../actions';
 import { apiEndPoints } from '../../../constants/apiEndPoints';
 import { parseError } from '../ErrorHandler';
+import { setDataInStorage } from '../../../common/storage/storageConfig';
 
 export function signUpActionAsync(data) {
   return (dispatch) => {
     dispatch(signUpAction());
     return post(apiEndPoints.signUp, data)
       .then((res) => res.data)
-      .then((res) => dispatch(signUpSuccessAction(res)))
+      .then((res) => {
+        setDataInStorage('auth', res.authToken);
+        dispatch(signUpSuccessAction(res));
+      })
       .catch((err) => dispatch(signUpFailureAction(parseError(err))));
   };
 }
@@ -27,7 +31,10 @@ export function signInActionAsync(data) {
     dispatch(signInAction());
     return post(apiEndPoints.signIn, data)
       .then((res) => res.data)
-      .then((res) => dispatch(signInSuccessAction(res)))
+      .then((res) => {
+        setDataInStorage('auth', res.authToken);
+        dispatch(signInSuccessAction(res));
+      })
       .catch((err) => dispatch(signInFailureAction(parseError(err))));
   };
 }
