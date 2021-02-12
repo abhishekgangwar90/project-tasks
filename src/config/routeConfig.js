@@ -1,24 +1,20 @@
 import Login from '../pages/Login';
 
 // eslint-disable-next-line import/prefer-default-export
-export const appRoutes = [
-  {
-    id: '/',
-    path: '/',
-    component: () => {
-      return 'base';
+export const appRoutes = {
+  public: [
+    {
+      id: 'login',
+      path: '/login',
+      component: Login,
+      canRedirect: true,
     },
-  },
-  {
-    id: 'login',
-    path: '/login',
-    component: Login,
-  },
-  {
-    id: 'profile',
-    path: '/profile',
-    component: () => {
-      return 'profile';
+  ],
+  private: [
+    {
+      id: 'main',
+      path: '/',
+      component: () => 'Main Page',
     },
-  },
-];
+  ],
+};
