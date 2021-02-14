@@ -13,6 +13,7 @@ function DashboardHeader() {
         </div>
         <div className="dashboard-header__profile">
           <UserProfilePic />
+          <div className="dashboard-header__account u-margin-left-medium" />
         </div>
       </div>
     </header>
