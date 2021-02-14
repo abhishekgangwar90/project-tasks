@@ -86,4 +86,25 @@
       background-color: $color-primary;
     }
   }
+
+  &--green-dark {
+    background-color: $color-primary-dark;
+    color: $color-white;
+
+    &::after {
+      content: '';
+      top: 0;
+      left: 0;
+      height: 100%;
+      width: 100%;
+      outline: none;
+      border-radius: 10rem;
+      transition: all 0.2s;
+      position: absolute;
+      border: none;
+      cursor: pointer;
+      z-index: -1;
+      background-color: $color-primary-dark;
+    }
+  }
 }

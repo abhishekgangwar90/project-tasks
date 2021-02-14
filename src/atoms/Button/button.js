@@ -3,12 +3,20 @@ import PropTypes from 'prop-types';
 
 import './button.scss';
 
-function Button({ type, title, animated, classes, color, ...otherProps }) {
+function Button({
+  type,
+  title,
+  animated,
+  size,
+  classes,
+  color,
+  ...otherProps
+}) {
   return (
     <button
       // eslint-disable-next-line react/button-has-type
       type={type}
-      className={`btn btn--${color} btn--large ${
+      className={`btn btn--${color} btn--${size} ${
         animated && 'btn--animated'
       } ${classes}`}
       {...otherProps}
@@ -22,6 +30,7 @@ function Button({ type, title, animated, classes, color, ...otherProps }) {
 Button.defaultProps = {
   type: 'button',
   title: 'default',
+  size: 'large',
   animated: false,
   classes: '',
   color: 'white',
@@ -32,7 +41,8 @@ Button.propTypes = {
   title: PropTypes.string,
   animated: PropTypes.bool,
   classes: PropTypes.string,
-  color: PropTypes.oneOf(['white', 'green']),
+  size: PropTypes.oneOf(['small', 'medium', 'large']),
+  color: PropTypes.oneOf(['white', 'green', 'green-dark']),
 };
 
 export default Button;
