@@ -2,9 +2,16 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import './badge.scss';
 
-function Badge({ title, selected }) {
+function Badge({ title, selected, ...otherProps }) {
   return (
-    <div className={`badge ${selected && 'badge--selected'}`}>{title}</div>
+    <button
+      type="button"
+      name={title}
+      className={`badge ${selected && 'badge--selected'}`}
+      {...otherProps}
+    >
+      {title}
+    </button>
   );
 }
 

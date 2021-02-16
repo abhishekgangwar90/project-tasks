@@ -13,8 +13,9 @@ function Navigation() {
           size="medium"
           color="green-dark"
           animated
+          classes="u-margin-bottom-large"
         />
-        <div className="navigation__filter u-margin-top-medium u-margin-bottom-medium">
+        <div className="navigation__filter u-margin-top-large u-margin-bottom-small">
           <Filters />
         </div>
         <div className="navigation__taskView">showing all tasks here</div>
