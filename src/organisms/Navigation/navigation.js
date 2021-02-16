@@ -8,7 +8,12 @@ function Navigation() {
   return (
     <div className="navigation">
       <div className="navigation__content">
-        <Button title="+ Add New Task" size="medium" color="green-dark" />
+        <Button
+          title="+ Add New Task"
+          size="medium"
+          color="green-dark"
+          animated
+        />
         <div className="navigation__filter u-margin-top-medium u-margin-bottom-medium">
           <Filters />
         </div>

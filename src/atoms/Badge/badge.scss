@@ -1,0 +1,21 @@
+@import '../../scss/main.scss';
+
+.badge {
+  font-size: 1.2rem;
+  padding: 0.2rem 1.2rem;
+  border-radius: 1.5rem;
+  text-align: center;
+  min-width: 6rem;
+  color: #55c57a;
+  border: 1px solid #55c57a;
+  cursor: pointer;
+
+  &:hover {
+    box-shadow: 0.5rem 0.5rem 2rem rgba(0, 0, 0, 0.3);
+  }
+
+  &--selected {
+    background-color: $color-primary;
+    color: $color-white;
+  }
+}
