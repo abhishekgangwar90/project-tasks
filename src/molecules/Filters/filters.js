@@ -1,14 +1,17 @@
 import React from 'react';
+import Select from '../../atoms/Select';
 
 function Filters() {
   return (
     <>
       sort By:{' '}
-      <select>
-        <option>Date</option>
-        <option>Name</option>
-        <option>Modified Date</option>
-      </select>
+      <Select
+        optionList={[
+          { label: 'Date', value: 'Date' },
+          { label: 'Name', value: 'Name' },
+          { label: 'Modified Dates', value: 'Modified' },
+        ]}
+      />
     </>
   );
 }
