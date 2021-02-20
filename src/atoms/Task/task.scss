@@ -28,6 +28,26 @@
     color: $color-text;
   }
 
+  &__status {
+    margin-left: 1.5rem;
+
+    &--complete {
+      color: $color-white;
+      background-color: $color-primary-dark;
+      border-radius: 2rem;
+      padding: 0 1rem;
+      font-size: 1.3rem;
+    }
+
+    &--pending {
+      color: $color-white;
+      background-color: $color-secondary-dark;
+      border-radius: 2rem;
+      padding: 0 1rem;
+      font-size: 1.3rem;
+    }
+  }
+
   &--selected {
     background-color: $color-grey-dark;
     border-bottom: 1px solid $color-grey-dark;

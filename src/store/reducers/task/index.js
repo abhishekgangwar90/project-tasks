@@ -7,7 +7,7 @@ import {
 const initialState = {
   isLoading: false,
   data: [],
-  error: null,
+  error: '',
 };
 
 const taskReducer = (state = initialState, { type, payload }) => {
@@ -16,6 +16,7 @@ const taskReducer = (state = initialState, { type, payload }) => {
       return {
         ...state,
         isLoading: true,
+        error: '',
       };
     }
 
@@ -24,6 +25,7 @@ const taskReducer = (state = initialState, { type, payload }) => {
         ...state,
         isLoading: false,
         data: payload,
+        error: '',
       };
     }
 

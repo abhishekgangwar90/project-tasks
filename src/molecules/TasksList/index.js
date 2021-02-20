@@ -3,7 +3,9 @@ import TasksList from './tasksList';
 import { getAllTasksAsync } from '../../store/middleware/task';
 
 const mapStateToProps = (state) => {
-  return state;
+  return {
+    tasks: state.task,
+  };
 };
 const dispatchActions = {
   getAllTasksAsync,

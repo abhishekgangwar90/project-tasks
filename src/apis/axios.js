@@ -1,6 +1,6 @@
 /* eslint-disable no-debugger */
 import axios from 'axios';
-// import store from '../store';
+import store from '../store';
 
 const axiosInstance = axios.create({
   baseURL: 'https://project-task-manager-123.herokuapp.com',
@@ -14,7 +14,7 @@ axiosInstance.interceptors.request.use(
   (request) => {
     if (request && request.headers && request.headers.requireAuth) {
       delete request.headers.requireAuth;
-      // request.headers.Authorization = store.getState().auth.authToken;
+      request.headers.Authorization = store.getState().auth.authToken;
     }
     return request;
   },
