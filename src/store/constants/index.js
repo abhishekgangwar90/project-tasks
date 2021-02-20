@@ -6,3 +6,7 @@ export const SIGN_UP_FAILURE = 'SIGN_UP_FAILURE';
 export const SIGN_IN = 'SIGN_IN';
 export const SIGN_IN_SUCCESS = 'SIGN_IN_SUCCESS';
 export const SIGN_IN_FAILURE = 'SIGN_IN_FAILURE';
+
+export const GET_ALL_TASK = 'GET_ALL_TASK';
+export const GET_ALL_TASK_SUCCESS = 'GET_ALL_TASK_SUCCESS';
+export const GET_ALL_TASK_FAILURE = 'GET_ALL_TASK_FAILURE';

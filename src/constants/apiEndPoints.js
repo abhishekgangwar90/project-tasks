@@ -2,4 +2,5 @@
 export const apiEndPoints = {
   signUp: '/users/new',
   signIn: '/users/login',
+  getAllTasks: '/tasks',
 };
