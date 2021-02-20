@@ -1,10 +1,10 @@
 import React from 'react';
 import Routes from '../Routes';
 
-import { checkIfUserExist } from '../../common/storage';
+import { getAuthData } from '../../common/storage';
 
 function Layout() {
-  const isLoggedIn = checkIfUserExist();
+  const { isLoggedIn } = getAuthData();
   return <Routes isLoggedIn={isLoggedIn} />;
 }
 

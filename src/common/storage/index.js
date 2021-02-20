@@ -17,7 +17,14 @@ export const deleteStorage = (key = DEFAULT_KEY) => {
   return Cookies.removeItem(key);
 };
 
-export const checkIfUserExist = () => {
+export const getAuthData = () => {
   const authData = JSON.parse(getFromStorage());
-  return authData && authData.isLoggedIn;
+  return (
+    authData &&
+    authData.isLoggedIn &&
+    authData.authToken && {
+      isLoggedIn: authData.isLoggedIn,
+      authToken: authData.authToken,
+    }
+  );
 };
