@@ -15,12 +15,14 @@ const taskReducer = (state = initialState, { type, payload }) => {
     case GET_ALL_TASK: {
       return {
         ...state,
+        isLoading: true,
       };
     }
 
     case GET_ALL_TASK_SUCCESS: {
       return {
         ...state,
+        isLoading: false,
         payload,
       };
     }
@@ -28,6 +30,7 @@ const taskReducer = (state = initialState, { type, payload }) => {
     case GET_ALL_TASK_FAILURE: {
       return {
         ...state,
+        isLoading: false,
         payload,
       };
     }

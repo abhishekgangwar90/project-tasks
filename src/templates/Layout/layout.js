@@ -33,7 +33,7 @@ function Layout() {
   }
 
   useEffect(() => {
-    console.log('hello');
+    console.log('from layout');
   }, []);
 
   return <Routes isLoggedIn={isLoggedIn} />;

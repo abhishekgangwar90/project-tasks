@@ -1,16 +1,16 @@
 /* eslint-disable import/prefer-default-export */
 import { get } from '../../../apis';
 import { apiEndPoints } from '../../../constants/apiEndPoints';
-import { getAllTasks } from '../../actions';
+import { getAllTasks, getAllTasksSuccess } from '../../actions';
 
 export const getAllTasksAsync = () => (dispatch) => {
-  dispatch(getAllTasks);
-
+  dispatch(getAllTasks());
   return get(apiEndPoints.getAllTasks, {
     headers: {
       requireAuth: true,
     },
   })
-    .then((res) => res.json())
+    .then((res) => res.data)
+    .then((res) => dispatch(getAllTasksSuccess(res)))
     .catch((err) => console.log(err));
 };

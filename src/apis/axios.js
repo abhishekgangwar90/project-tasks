@@ -14,8 +14,7 @@ axiosInstance.interceptors.request.use(
   (request) => {
     if (request && request.headers && request.headers.requireAuth) {
       delete request.headers.requireAuth;
-      console.log(store.getState());
-      // request.headers['Authorization']  =
+      request.headers.Authorization = store.getState().auth.authToken;
     }
     return request;
   },
