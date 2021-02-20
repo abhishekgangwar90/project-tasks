@@ -1,12 +1,16 @@
-/* eslint-disable import/prefer-default-export */
-
 import {
   GET_ALL_TASK,
   GET_ALL_TASK_FAILURE,
   GET_ALL_TASK_SUCCESS,
 } from '../../constants';
 
-export const taskReducer = (state, { type, payload }) => {
+const initialState = {
+  isLoading: false,
+  data: [],
+  error: null,
+};
+
+const taskReducer = (state = initialState, { type, payload }) => {
   switch (type) {
     case GET_ALL_TASK: {
       return {
@@ -32,3 +36,5 @@ export const taskReducer = (state, { type, payload }) => {
       return state;
   }
 };
+
+export default taskReducer;

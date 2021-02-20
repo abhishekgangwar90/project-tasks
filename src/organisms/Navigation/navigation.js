@@ -1,8 +1,8 @@
 import React from 'react';
 
 import Button from '../../atoms/Button';
-import Task from '../../atoms/Task/task';
 import Filters from '../../molecules/Filters';
+import TasksList from '../../molecules/TasksList';
 import './navigation.scss';
 
 function Navigation() {
@@ -20,8 +20,7 @@ function Navigation() {
           <Filters />
         </div>
         <div className="navigation__taskView">
-          <Task selected />
-          <Task />
+          <TasksList />
         </div>
       </div>
       <div className="navigation__footer">

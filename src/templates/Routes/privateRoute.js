@@ -2,14 +2,12 @@ import React from 'react';
 import { Redirect, Route } from 'react-router';
 import PropTypes from 'prop-types';
 
-import { checkIfUserExist } from '../../common/storage';
-
-function PrivateRoute({ component: Component, ...otherProps }) {
+function PrivateRoute({ component: Component, isLoggedIn, ...otherProps }) {
   return (
     <Route
       {...otherProps}
       render={(props) =>
-        checkIfUserExist() ? (
+        isLoggedIn ? (
           <Component {...props} />
         ) : (
           <Redirect to="/login" {...props} />
@@ -23,6 +21,7 @@ PrivateRoute.defaultProps = {};
 
 PrivateRoute.propTypes = {
   component: PropTypes.func.isRequired,
+  isLoggedIn: PropTypes.bool.isRequired,
 };
 
 export default PrivateRoute;

@@ -1,11 +1,12 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import { BrowserRouter as Router, Switch } from 'react-router-dom';
 
 import { appRoutes } from '../../config/routeConfig';
 import PrivateRoute from './privateRoute';
 import PublicRoute from './publicRoute';
 
-function Routes() {
+function Routes({ isLoggedIn }) {
   return (
     <Router basename="/">
       <Switch>
@@ -17,6 +18,7 @@ function Routes() {
             path={route.path}
             canRedirect={route.canRedirect}
             component={route.component}
+            isLoggedIn={isLoggedIn}
           />
         ))}
         {appRoutes.private.map((route) => (
@@ -26,11 +28,20 @@ function Routes() {
             strict
             path={route.path}
             component={route.component}
+            isLoggedIn={isLoggedIn}
           />
         ))}
       </Switch>
     </Router>
   );
 }
+
+Routes.defaultProps = {
+  isLoggedIn: false,
+};
+
+Routes.propTypes = {
+  isLoggedIn: PropTypes.bool,
+};
 
 export default Routes;
