@@ -1,7 +1,12 @@
 /* eslint-disable import/prefer-default-export */
 import { get } from '../../../apis';
 import { apiEndPoints } from '../../../constants/apiEndPoints';
-import { getAllTasks, getAllTasksSuccess } from '../../actions';
+import {
+  getAllTasks,
+  getAllTasksFailure,
+  getAllTasksSuccess,
+} from '../../actions';
+import { parseError } from '../ErrorHandler';
 
 export const getAllTasksAsync = () => (dispatch) => {
   dispatch(getAllTasks());
@@ -12,5 +17,5 @@ export const getAllTasksAsync = () => (dispatch) => {
   })
     .then((res) => res.data)
     .then((res) => dispatch(getAllTasksSuccess(res)))
-    .catch((err) => console.log(err));
+    .catch((err) => dispatch(getAllTasksFailure(parseError(err))));
 };

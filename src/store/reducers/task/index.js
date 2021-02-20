@@ -23,7 +23,7 @@ const taskReducer = (state = initialState, { type, payload }) => {
       return {
         ...state,
         isLoading: false,
-        payload,
+        data: payload,
       };
     }
 
@@ -31,7 +31,7 @@ const taskReducer = (state = initialState, { type, payload }) => {
       return {
         ...state,
         isLoading: false,
-        payload,
+        error: payload.error,
       };
     }
 
