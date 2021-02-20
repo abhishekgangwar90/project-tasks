@@ -1,6 +1,7 @@
 import React from 'react';
 
 import Button from '../../atoms/Button';
+import Task from '../../atoms/Task/task';
 import Filters from '../../molecules/Filters';
 import './navigation.scss';
 
@@ -18,10 +19,13 @@ function Navigation() {
         <div className="navigation__filter u-margin-top-large u-margin-bottom-small">
           <Filters />
         </div>
-        <div className="navigation__taskView">showing all tasks here</div>
+        <div className="navigation__taskView">
+          <Task selected />
+          <Task />
+        </div>
       </div>
       <div className="navigation__footer">
-        &#64; 2020 All rights reserved By Abhishek
+        &#64; 2020 By Abhishek, All rights reserved.
       </div>
     </div>
   );
