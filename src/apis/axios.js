@@ -17,6 +17,7 @@ axiosInstance.interceptors.request.use(
       console.log(store.getState());
       // request.headers['Authorization']  =
     }
+    return request;
   },
   (error) => {
     return Promise.reject(error);

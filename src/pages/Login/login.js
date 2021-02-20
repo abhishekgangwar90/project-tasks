@@ -17,6 +17,7 @@ function Login({ signUpActionAsync, signInActionAsync }) {
   };
 
   const handleSignIn = (data) => {
+    console.log(data);
     signInActionAsync(data);
   };
 

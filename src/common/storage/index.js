@@ -17,7 +17,7 @@ export const deleteStorage = (key = DEFAULT_KEY) => {
   return Cookies.removeItem(key);
 };
 
-export const getAuthData = () => {
+export const getAuthDataFromStorage = () => {
   const authData = JSON.parse(getFromStorage());
   return (
     authData &&

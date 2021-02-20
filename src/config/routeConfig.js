@@ -17,5 +17,12 @@ export const appRoutes = {
       path: '/',
       component: Dashboard,
     },
+    {
+      id: 'path',
+      path: '/profile',
+      component: () => {
+        return ' <>Hello</>';
+      },
+    },
   ],
 };
