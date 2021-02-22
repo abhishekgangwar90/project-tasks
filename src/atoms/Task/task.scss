@@ -29,6 +29,7 @@
   }
 
   &__status {
+    @include flexCenter;
     margin-left: 1.5rem;
 
     &--complete {
@@ -44,7 +45,7 @@
       background-color: $color-secondary-dark;
       border-radius: 2rem;
       padding: 0 1rem;
-      font-size: 1.3rem;
+      font-size: 1.2rem;
     }
   }
 

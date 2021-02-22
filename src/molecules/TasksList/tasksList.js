@@ -2,11 +2,20 @@ import React, { useEffect } from 'react';
 import PropTypes from 'prop-types';
 
 import Task from '../../atoms/Task';
+import './tasksList.scss';
 
 function TasksList({ tasks, getAllTasksAsync }) {
   useEffect(() => {
     getAllTasksAsync();
   }, []);
+
+  if (tasks.isLoading) {
+    return '...Loading';
+  }
+
+  if (tasks.data.length === 0) {
+    return <div className="noTask">No Tasks To Display</div>;
+  }
 
   return tasks.data.map((elm) => {
     // eslint-disable-next-line no-underscore-dangle

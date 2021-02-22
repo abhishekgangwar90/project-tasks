@@ -1,0 +1,9 @@
+@import '../../scss/main.scss';
+
+.noTask {
+  @include flexCenter;
+  height: inherit;
+
+  color: $color-secondary-dark;
+  font-size: 1.8rem;
+}
