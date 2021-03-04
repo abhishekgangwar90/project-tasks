@@ -1,0 +1,7 @@
+@import '../../scss/main.scss';
+
+.content {
+  @include flexCenter;
+  width: 100%;
+  height: 100%;
+}

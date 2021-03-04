@@ -1,4 +1,5 @@
 import React from 'react';
+import Content from '../../organisms/Content';
 import DashboardHeader from '../../organisms/DashboardHeader';
 import Navigation from '../../organisms/Navigation';
 import './dashboard.scss';
@@ -11,7 +12,9 @@ function Dashboard() {
         <nav className="dashboard__nav">
           <Navigation />
         </nav>
-        <div className="dashboard__content">container</div>
+        <div className="dashboard__content">
+          <Content />
+        </div>
       </main>
     </div>
   );

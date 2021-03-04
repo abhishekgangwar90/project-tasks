@@ -1,0 +1,9 @@
+.emptyContent {
+  position: relative;
+
+  & caption {
+    position: absolute;
+    bottom: 50%;
+    font-size: 4rem;
+  }
+}
