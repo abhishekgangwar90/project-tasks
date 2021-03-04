@@ -4,7 +4,7 @@ import PropTypes from 'prop-types';
 import Task from '../../atoms/Task';
 import './tasksList.scss';
 
-function TasksList({ tasks, getAllTasksAsync }) {
+function TasksList({ tasks, selectedFilter, getAllTasksAsync }) {
   useEffect(() => {
     getAllTasksAsync();
   }, []);
@@ -17,10 +17,20 @@ function TasksList({ tasks, getAllTasksAsync }) {
     return <div className="noTask">No Tasks To Display</div>;
   }
 
-  return tasks.data.map((elm) => {
-    // eslint-disable-next-line no-underscore-dangle
-    return <Task key={elm._id} {...elm} />;
-  });
+  return tasks.data
+    .filter((elm) => {
+      if (selectedFilter === 'Completed') {
+        return elm.isComplete === true;
+      }
+      if (selectedFilter === 'Pending') {
+        return elm.isComplete === false;
+      }
+      return true;
+    })
+    .map((elm) => {
+      // eslint-disable-next-line no-underscore-dangle
+      return <Task key={elm._id} {...elm} />;
+    });
 }
 
 TasksList.defaultProps = {
@@ -37,6 +47,7 @@ TasksList.propTypes = {
     data: PropTypes.arrayOf(Object),
     error: PropTypes.string,
   }),
+  selectedFilter: PropTypes.string.isRequired,
   getAllTasksAsync: PropTypes.func.isRequired,
 };
 

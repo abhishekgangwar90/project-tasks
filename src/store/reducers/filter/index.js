@@ -2,7 +2,7 @@ import { SET_SELECTED_FILTER } from '../../constants';
 
 /* eslint-disable import/prefer-default-export */
 export const initialState = {
-  selectedFilter: 'all',
+  selectedFilter: 'All',
 };
 
 function filterReducer(state = initialState, { type, payload }) {

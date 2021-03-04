@@ -1,9 +1,9 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import Badge from '../../atoms/Badge';
 import './filters.scss';
 
-function Filters() {
-  const [selectedFilter, setSelectedFilter] = React.useState('All');
+function Filters({ selectedFilter, setSelectedFilterAction }) {
   const badges = ['All', 'Completed', 'Pending'];
 
   return (
@@ -12,7 +12,7 @@ function Filters() {
         return (
           <Badge
             key={elm}
-            onClick={() => setSelectedFilter(elm)}
+            onClick={() => setSelectedFilterAction({ selectedFilter: elm })}
             title={elm}
             selected={elm === selectedFilter}
           />
@@ -21,5 +21,12 @@ function Filters() {
     </div>
   );
 }
+
+Filters.defaultProps = {};
+
+Filters.propTypes = {
+  selectedFilter: PropTypes.string.isRequired,
+  setSelectedFilterAction: PropTypes.func.isRequired,
+};
 
 export default Filters;
