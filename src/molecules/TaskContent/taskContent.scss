@@ -1,0 +1,19 @@
+.taskContent {
+  height: 100%;
+  padding: 5rem;
+  border: 0.1rem solid $color-grey-dark;
+  border-radius: 0.6rem;
+  background-color: $color-background;
+  box-shadow: 1rem 2rem 2rem rgba(0, 0, 0, 0.2);
+
+  &__header {
+    height: 15%;
+    border-bottom: 1px solid #e6e6e6;
+
+    &--main {
+      font-size: 3rem;
+      font-weight: 400;
+      color: $color-primary-dark;
+    }
+  }
+}
