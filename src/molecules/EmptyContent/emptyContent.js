@@ -6,7 +6,13 @@ function EmptyContent() {
   return (
     <figcaption className="emptyContent">
       <CreateNewLogo />
-      <caption> Create New Task</caption>
+      <caption>
+        <h2>Create New Task</h2>
+        <h3>
+          Click on <span className="primary__text">+Add New</span> to Create New
+          Task
+        </h3>
+      </caption>
     </figcaption>
   );
 }

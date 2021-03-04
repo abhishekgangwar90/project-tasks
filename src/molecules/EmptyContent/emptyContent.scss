@@ -1,9 +1,31 @@
+@import '../../scss/main.scss';
+
 .emptyContent {
   position: relative;
+  height: 70%;
 
   & caption {
     position: absolute;
-    bottom: 50%;
-    font-size: 4rem;
+    bottom: 25%;
+    left: 2%;
+    text-align: left;
+
+    & h2 {
+      font-size: 4.5rem;
+      font-weight: 400;
+      color: #265e6e;
+    }
+
+    & h3 {
+      font-size: 2rem;
+      font-weight: 400;
+      letter-spacing: 0.1rem;
+      color: $color-grey-dark-2;
+    }
+
+    & .primary__text {
+      color: #265e6e;
+      font-weight: 700;
+    }
   }
 }
