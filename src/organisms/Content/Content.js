@@ -1,24 +1,46 @@
-import React from 'react';
+/* eslint-disable no-underscore-dangle */
+import React, { useEffect } from 'react';
+import PropTypes from 'prop-types';
 import TaskContent from '../../molecules/TaskContent';
-// import EmptyContent from '../../molecules/EmptyContent';
+import EmptyContent from '../../molecules/EmptyContent';
 import './content.scss';
 
-function Content() {
+function Content({ selectedTask, tasks }) {
+  const [selectedTaskInfo, setSelectedTaskInfo] = React.useState({});
+
+  useEffect(() => {
+    const activeTask = tasks.filter((elm) => elm._id === selectedTask);
+    // eslint-disable-next-line no-debugger
+    debugger;
+
+    setSelectedTaskInfo(activeTask[0]);
+  }, [selectedTask]);
+
+  console.log(selectedTaskInfo);
   return (
     <section className="content">
-      {/* <EmptyContent /> */}
-      <TaskContent
-        title="Lorem ipsum"
-        createdAt="23 Dec"
-        lastUpdatedAt="25 Dec"
-        status="Pending"
-        taskContent="dolor sit amet, consectetur adipisicing elit. Qui aut molestias
-          repellendus praesentium voluptatibus deserunt perferendis neque id
-          esse et commodi nostrum, eaque quas aperiam est exercitationem, facere
-          repudiandae mollitia."
-      />
+      {selectedTaskInfo && selectedTaskInfo.title ? (
+        <TaskContent
+          title={selectedTaskInfo.title}
+          createdAt={selectedTaskInfo.createdAt}
+          lastUpdatedAt={selectedTaskInfo.updatedAt}
+          status={selectedTaskInfo.isComplete ? 'Completed' : 'Pending'}
+          taskContent={selectedTaskInfo.description}
+        />
+      ) : (
+        <EmptyContent />
+      )}
     </section>
   );
 }
 
+Content.propTypes = {
+  selectedTask: PropTypes.string,
+  tasks: PropTypes.arrayOf(Object),
+};
+
+Content.defaultProps = {
+  selectedTask: '',
+  tasks: [],
+};
 export default Content;
