@@ -2,8 +2,8 @@ import { connect } from 'react-redux';
 import TasksList from './tasksList';
 import { getAllTasksAsync } from '../../store/middleware/task';
 
-const mapStateToProps = ({ task, filter }) => {
-  const { selectedFilter } = filter;
+const mapStateToProps = ({ task, custom }) => {
+  const { selectedFilter } = custom;
   return {
     selectedFilter,
     tasks: task,

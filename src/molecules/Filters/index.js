@@ -2,8 +2,8 @@ import { connect } from 'react-redux';
 import { setSelectedFilterAction } from '../../store/actions';
 import Filters from './filters';
 
-const mapStateToProps = ({ filter }) => {
-  const { selectedFilter } = filter;
+const mapStateToProps = ({ custom }) => {
+  const { selectedFilter } = custom;
   return {
     selectedFilter,
   };

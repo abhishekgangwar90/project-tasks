@@ -5,7 +5,7 @@ export const initialState = {
   selectedFilter: 'All',
 };
 
-function filterReducer(state = initialState, { type, payload }) {
+function CustomReducer(state = initialState, { type, payload }) {
   switch (type) {
     case SET_SELECTED_FILTER: {
       return {
@@ -20,4 +20,4 @@ function filterReducer(state = initialState, { type, payload }) {
   }
 }
 
-export default filterReducer;
+export default CustomReducer;
