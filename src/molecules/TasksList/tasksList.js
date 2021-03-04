@@ -1,13 +1,26 @@
+/* eslint-disable no-underscore-dangle */
 import React, { useEffect } from 'react';
 import PropTypes from 'prop-types';
 
 import Task from '../../atoms/Task';
 import './tasksList.scss';
 
-function TasksList({ tasks, selectedFilter, getAllTasksAsync }) {
+function TasksList({
+  tasks,
+  selectedTask,
+  selectedFilter,
+  getAllTasksAsync,
+  setSelectedTaskAction,
+}) {
   useEffect(() => {
     getAllTasksAsync();
   }, []);
+
+  const handleTaskClick = (id) => {
+    setSelectedTaskAction({
+      id,
+    });
+  };
 
   if (tasks.isLoading) {
     return '...Loading';
@@ -28,8 +41,14 @@ function TasksList({ tasks, selectedFilter, getAllTasksAsync }) {
       return true;
     })
     .map((elm) => {
-      // eslint-disable-next-line no-underscore-dangle
-      return <Task key={elm._id} {...elm} />;
+      return (
+        <Task
+          {...elm}
+          key={elm._id}
+          selectedTask={selectedTask}
+          onTaskClick={handleTaskClick}
+        />
+      );
     });
 }
 
@@ -39,6 +58,7 @@ TasksList.defaultProps = {
     data: [],
     error: '',
   },
+  selectedTask: '',
 };
 
 TasksList.propTypes = {
@@ -47,8 +67,10 @@ TasksList.propTypes = {
     data: PropTypes.arrayOf(Object),
     error: PropTypes.string,
   }),
+  selectedTask: PropTypes.string,
   selectedFilter: PropTypes.string.isRequired,
   getAllTasksAsync: PropTypes.func.isRequired,
+  setSelectedTaskAction: PropTypes.func.isRequired,
 };
 
 export default TasksList;

@@ -2,9 +2,15 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import './task.scss';
 
-function Task({ title, isComplete, selected }) {
+function Task({ _id, title, selectedTask, isComplete, onTaskClick }) {
   return (
-    <div className={`task ${selected && 'task--selected'}`}>
+    <div
+      className={`task ${selectedTask === _id && 'task--selected'}`}
+      tabIndex="0"
+      onKeyDown={() => {}}
+      onClick={() => onTaskClick(_id)}
+      role="button"
+    >
       <div className="task__content">
         <h2>{title}</h2>
         <div className="task__meta">
@@ -23,13 +29,14 @@ function Task({ title, isComplete, selected }) {
 }
 
 Task.propTypes = {
+  _id: PropTypes.string.isRequired,
   title: PropTypes.string.isRequired,
+  onTaskClick: PropTypes.func.isRequired,
   isComplete: PropTypes.bool,
-  selected: PropTypes.bool,
+  selectedTask: PropTypes.string.isRequired,
 };
 
 Task.defaultProps = {
-  selected: false,
   isComplete: false,
 };
 
