@@ -1,3 +1,5 @@
+@import '../../scss/main.scss';
+
 .taskContent {
   height: 100%;
   padding: 5rem;
@@ -6,14 +8,41 @@
   background-color: $color-background;
   box-shadow: 1rem 2rem 2rem rgba(0, 0, 0, 0.2);
 
-  &__header {
-    height: 15%;
+  & header {
+    height: 18%;
     border-bottom: 1px solid #e6e6e6;
+    display: flex;
+    justify-content: space-between;
+  }
 
-    &--main {
+  &__header {
+    display: flex;
+    flex-direction: column;
+    flex: 0 0 80%;
+
+    & h2 {
       font-size: 3rem;
       font-weight: 400;
       color: $color-primary-dark;
     }
+  }
+
+  &__meta {
+    &--subText {
+      font-size: 1.5rem;
+      margin-right: 2rem;
+    }
+  }
+
+  &__action {
+    flex: 0 0 20%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-end;
+  }
+
+  & article {
+    height: 82%;
   }
 }

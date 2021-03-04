@@ -1,4 +1,5 @@
 import React from 'react';
+import TaskContent from '../../molecules/TaskContent';
 // import EmptyContent from '../../molecules/EmptyContent';
 import './content.scss';
 
@@ -6,17 +7,16 @@ function Content() {
   return (
     <section className="content">
       {/* <EmptyContent /> */}
-      <article className="content__task">
-        <h2 className="content__header">
-          <span className="content__header--main">Lorem ipsum</span>
-        </h2>
-        <p>
-          dolor sit amet, consectetur adipisicing elit. Qui aut molestias
+      <TaskContent
+        title="Lorem ipsum"
+        createdAt="23 Dec"
+        lastUpdatedAt="25 Dec"
+        status="Pending"
+        taskContent="dolor sit amet, consectetur adipisicing elit. Qui aut molestias
           repellendus praesentium voluptatibus deserunt perferendis neque id
           esse et commodi nostrum, eaque quas aperiam est exercitationem, facere
-          repudiandae mollitia.
-        </p>
-      </article>
+          repudiandae mollitia."
+      />
     </section>
   );
 }
