@@ -8,22 +8,18 @@ import './navigation.scss';
 function Navigation() {
   return (
     <div className="navigation">
-      <div className="navigation__button">
-        <Button
-          title="+ Add New Task"
-          size="medium"
-          color="green-dark"
-          animated
-        />
-      </div>
-      <div className="navigation__filter">
+      <Button
+        title="+ Add New Task"
+        size="medium"
+        color="green-dark"
+        animated
+        classes="u-margin-top-large u-margin-bottom-large"
+      />
+      <div className="navigation__filters u-margin-top-large">
         <Filters />
       </div>
       <div className="navigation__taskView">
         <TasksList />
-      </div>
-      <div className="navigation__footer">
-        &#64; 2020 By Abhishek, All rights reserved.
       </div>
     </div>
   );
