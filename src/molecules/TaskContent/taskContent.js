@@ -2,6 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import './taskContent.scss';
 import Badge from '../../atoms/Badge';
+import { convertTimeStampToDate } from '../../utils/appUtils';
 
 function TaskContent({ title, createdAt, lastUpdatedAt, status, taskContent }) {
   return (
@@ -11,13 +12,14 @@ function TaskContent({ title, createdAt, lastUpdatedAt, status, taskContent }) {
           <h2>{title}</h2>
           <div className="taskContent__meta">
             <span className="taskContent__meta--subText">
-              Create on - {createdAt}
+              <strong>Create on</strong> - {convertTimeStampToDate(createdAt)}
             </span>
             <span className="taskContent__meta--subText">
-              Last Updated on - {lastUpdatedAt}
+              <strong>Last Updated on</strong> -{' '}
+              {convertTimeStampToDate(lastUpdatedAt)}
             </span>
             <span className="taskContent__meta--subText">
-              Status - {status}
+              <strong>Status</strong> - {status}
             </span>
           </div>
         </div>
