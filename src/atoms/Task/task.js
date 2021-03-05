@@ -1,8 +1,16 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import './task.scss';
+import { convertTimeStampToDate } from '../../utils/appUtils';
 
-function Task({ _id, title, selectedTask, isComplete, onTaskClick }) {
+function Task({
+  _id,
+  title,
+  selectedTask,
+  createdAt,
+  isComplete,
+  onTaskClick,
+}) {
   return (
     <div
       className={`task ${selectedTask === _id && 'task--selected'}`}
@@ -14,7 +22,9 @@ function Task({ _id, title, selectedTask, isComplete, onTaskClick }) {
       <div className="task__content">
         <h2>{title}</h2>
         <div className="task__meta">
-          <span className="u-margin-right-small">27-Dec</span>
+          <span className="u-margin-right-small">
+            {convertTimeStampToDate(createdAt)}
+          </span>
           {isComplete ? (
             <span className="task__status task__status--completed">
               Completed
@@ -32,6 +42,7 @@ Task.propTypes = {
   _id: PropTypes.string.isRequired,
   title: PropTypes.string.isRequired,
   onTaskClick: PropTypes.func.isRequired,
+  createdAt: PropTypes.string.isRequired,
   isComplete: PropTypes.bool,
   selectedTask: PropTypes.string.isRequired,
 };

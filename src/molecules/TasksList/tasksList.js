@@ -40,6 +40,7 @@ function TasksList({
       }
       return true;
     })
+    .reverse()
     .map((elm) => {
       return (
         <Task

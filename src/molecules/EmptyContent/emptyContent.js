@@ -4,16 +4,16 @@ import './emptyContent.scss';
 
 function EmptyContent() {
   return (
-    <figcaption className="emptyContent">
+    <figure className="emptyContent">
       <CreateNewLogo />
-      <caption>
+      <figcaption>
         <h2>Create New Task</h2>
         <h3>
           Click on <span className="primary__text">+Add New</span> to Create New
           Task
         </h3>
-      </caption>
-    </figcaption>
+      </figcaption>
+    </figure>
   );
 }
 

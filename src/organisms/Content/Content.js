@@ -10,13 +10,9 @@ function Content({ selectedTask, tasks }) {
 
   useEffect(() => {
     const activeTask = tasks.filter((elm) => elm._id === selectedTask);
-    // eslint-disable-next-line no-debugger
-    debugger;
-
     setSelectedTaskInfo(activeTask[0]);
   }, [selectedTask]);
 
-  console.log(selectedTaskInfo);
   return (
     <section className="content">
       {selectedTaskInfo && selectedTaskInfo.title ? (
