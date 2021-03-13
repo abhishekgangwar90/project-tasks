@@ -18,12 +18,12 @@ function Content({ selectedTask, updateTaskAsync }) {
 }
 
 Content.propTypes = {
-  selectedTask: PropTypes.string,
+  selectedTask: PropTypes.instanceOf(Object),
   updateTaskAsync: PropTypes.func,
 };
 
 Content.defaultProps = {
-  selectedTask: '',
+  selectedTask: {},
   updateTaskAsync: () => {},
 };
 export default Content;

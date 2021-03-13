@@ -9,7 +9,7 @@ function TaskContent({
   title,
   createdAt,
   updatedAt,
-  status,
+  isComplete,
   description,
   updateTaskAsync,
 }) {
@@ -41,7 +41,7 @@ function TaskContent({
               {convertTimeStampToDate(updatedAt)}
             </span>
             <span className="taskContent__meta--subText">
-              <strong>Status</strong> - {status}
+              <strong>Status</strong> - {isComplete ? 'Complete' : 'Pending'}
             </span>
           </div>
         </div>
@@ -66,7 +66,7 @@ TaskContent.propTypes = {
   title: PropTypes.string,
   updatedAt: PropTypes.string,
   createdAt: PropTypes.string,
-  status: PropTypes.string,
+  isComplete: PropTypes.bool,
   description: PropTypes.string,
   updateTaskAsync: PropTypes.func.isRequired,
 };
@@ -76,7 +76,7 @@ TaskContent.defaultProps = {
   title: 'Enter Title Here',
   updatedAt: '',
   createdAt: '',
-  status: '',
+  isComplete: false,
   description: 'Enter Description Here',
 };
 

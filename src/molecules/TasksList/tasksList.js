@@ -58,7 +58,7 @@ TasksList.defaultProps = {
     data: [],
     error: '',
   },
-  selectedTask: '',
+  selectedTask: {},
 };
 
 TasksList.propTypes = {
@@ -67,7 +67,7 @@ TasksList.propTypes = {
     data: PropTypes.arrayOf(Object),
     error: PropTypes.string,
   }),
-  selectedTask: PropTypes.string,
+  selectedTask: PropTypes.instanceOf(Object),
   selectedFilter: PropTypes.string.isRequired,
   getAllTasksAsync: PropTypes.func.isRequired,
   setSelectedTaskAction: PropTypes.func.isRequired,
