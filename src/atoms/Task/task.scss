@@ -52,9 +52,6 @@
   }
 
   &--selected {
-  }
-
-  &--selected > &__content {
-    border-bottom: 2px solid $color-secondary-dark;
+    border-left: 0.5rem solid $color-secondary-dark;
   }
 }

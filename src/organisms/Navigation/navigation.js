@@ -13,9 +13,9 @@ function Navigation() {
         size="medium"
         color="green-dark"
         animated
-        classes="u-margin-top-large u-margin-bottom-large"
+        classes="u-margin-top-xl u-margin-bottom-large"
       />
-      <div className="navigation__filters u-margin-top-large">
+      <div className="navigation__filters u-margin-top-xl">
         <Filters />
       </div>
       <div className="navigation__taskView">
