@@ -1,5 +1,6 @@
 import { connect } from 'react-redux';
 import Content from './Content';
+import { updateTaskAsync } from '../../store/middleware';
 
 const mapStateToProps = ({ task, custom }) => {
   const { selectedTask } = custom;
@@ -9,6 +10,8 @@ const mapStateToProps = ({ task, custom }) => {
   };
 };
 
-const dispatchActions = {};
+const dispatchActions = {
+  updateTaskAsync,
+};
 
 export default connect(mapStateToProps, dispatchActions)(Content);

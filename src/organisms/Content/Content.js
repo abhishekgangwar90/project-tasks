@@ -5,7 +5,7 @@ import TaskContent from '../../molecules/TaskContent';
 import EmptyContent from '../../molecules/EmptyContent';
 import './content.scss';
 
-function Content({ selectedTask, tasks }) {
+function Content({ selectedTask, tasks, updateTaskAsync }) {
   const [selectedTaskInfo, setSelectedTaskInfo] = React.useState({});
 
   useEffect(() => {
@@ -17,11 +17,13 @@ function Content({ selectedTask, tasks }) {
     <section className="content">
       {selectedTaskInfo && selectedTaskInfo.title ? (
         <TaskContent
+          id={selectedTaskInfo._id}
           title={selectedTaskInfo.title}
           createdAt={selectedTaskInfo.createdAt}
           lastUpdatedAt={selectedTaskInfo.updatedAt}
           status={selectedTaskInfo.isComplete ? 'Completed' : 'Pending'}
           taskContent={selectedTaskInfo.description}
+          updateTaskAsync={updateTaskAsync}
         />
       ) : (
         <EmptyContent />
@@ -33,10 +35,12 @@ function Content({ selectedTask, tasks }) {
 Content.propTypes = {
   selectedTask: PropTypes.string,
   tasks: PropTypes.arrayOf(Object),
+  updateTaskAsync: PropTypes.func,
 };
 
 Content.defaultProps = {
   selectedTask: '',
   tasks: [],
+  updateTaskAsync: () => {},
 };
 export default Content;
