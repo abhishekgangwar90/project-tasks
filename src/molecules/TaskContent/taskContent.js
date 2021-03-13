@@ -5,23 +5,23 @@ import Badge from '../../atoms/Badge';
 import { convertTimeStampToDate } from '../../utils/appUtils';
 
 function TaskContent({
-  id,
+  _id,
   title,
   createdAt,
   lastUpdatedAt,
   status,
-  taskContent,
+  description,
   updateTaskAsync,
 }) {
   const [value, setValue] = React.useState('');
 
   useEffect(() => {
-    setValue(taskContent);
-  }, []);
+    setValue(description);
+  }, [_id]);
 
   const handleTaskUpdate = () => {
     updateTaskAsync({
-      id,
+      id: _id,
       title,
       description: value,
     });
@@ -58,22 +58,22 @@ function TaskContent({
 }
 
 TaskContent.propTypes = {
-  id: PropTypes.string,
+  _id: PropTypes.string,
   title: PropTypes.string,
   lastUpdatedAt: PropTypes.string,
   createdAt: PropTypes.string,
   status: PropTypes.string,
-  taskContent: PropTypes.string,
+  description: PropTypes.string,
   updateTaskAsync: PropTypes.func.isRequired,
 };
 
 TaskContent.defaultProps = {
-  id: '',
+  _id: '',
   title: 'Enter Title Here',
   lastUpdatedAt: '',
   createdAt: '',
   status: '',
-  taskContent: 'Enter Description Here',
+  description: 'Enter Description Here',
 };
 
 export default TaskContent;
