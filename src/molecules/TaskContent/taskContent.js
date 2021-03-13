@@ -1,10 +1,16 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import PropTypes from 'prop-types';
 import './taskContent.scss';
 import Badge from '../../atoms/Badge';
 import { convertTimeStampToDate } from '../../utils/appUtils';
 
 function TaskContent({ title, createdAt, lastUpdatedAt, status, taskContent }) {
+  const [value, setValue] = React.useState('');
+
+  useEffect(() => {
+    setValue(taskContent);
+  }, []);
+
   return (
     <section className="taskContent">
       <header>
@@ -24,11 +30,12 @@ function TaskContent({ title, createdAt, lastUpdatedAt, status, taskContent }) {
           </div>
         </div>
         <div className="taskContent__action">
+          <Badge title="Save" onClick={() => {}} />
           <Badge title="Mark As Done" />
         </div>
       </header>
       <article>
-        <p>{taskContent}</p>
+        <textarea value={value} onChange={(e) => setValue(e.target.value)} />
       </article>
     </section>
   );
