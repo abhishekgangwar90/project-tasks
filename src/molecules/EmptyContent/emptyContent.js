@@ -9,8 +9,8 @@ function EmptyContent() {
       <figcaption>
         <h2>Create New Task</h2>
         <h3>
-          Click on <span className="primary__text">+Add New</span> to Create New
-          Task
+          Click on <span className="primary__text">+Add New Task</span> to
+          Create New Task.
         </h3>
       </figcaption>
     </figure>
