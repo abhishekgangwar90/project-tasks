@@ -49,6 +49,12 @@
     & textarea {
       height: 100%;
       width: 100%;
+      border: none;
+      padding: 2rem 1rem;
+      font-family: 'Lato';
+      font-size: 1.6rem;
+      color: #777;
+      outline: none;
     }
   }
 }

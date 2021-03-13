@@ -1,3 +1,4 @@
+/* eslint-disable no-underscore-dangle */
 import React from 'react';
 import PropTypes from 'prop-types';
 import './task.scss';
@@ -7,13 +8,13 @@ function Task({
   _id,
   title,
   selectedTask,
-  createdAt,
+  updatedAt,
   isComplete,
   onTaskClick,
 }) {
   return (
     <div
-      className={`task ${selectedTask === _id && 'task--selected'}`}
+      className={`task ${selectedTask._id === _id && 'task--selected'}`}
       tabIndex="0"
       onKeyDown={() => {}}
       onClick={() => onTaskClick(_id)}
@@ -23,7 +24,7 @@ function Task({
         <h2>{title}</h2>
         <div className="task__meta">
           <span className="u-margin-right-small">
-            {convertTimeStampToDate(createdAt)}
+            {convertTimeStampToDate(updatedAt)}
           </span>
           {isComplete ? (
             <span className="task__status task__status--completed">
@@ -42,9 +43,9 @@ Task.propTypes = {
   _id: PropTypes.string.isRequired,
   title: PropTypes.string.isRequired,
   onTaskClick: PropTypes.func.isRequired,
-  createdAt: PropTypes.string.isRequired,
+  updatedAt: PropTypes.string.isRequired,
   isComplete: PropTypes.bool,
-  selectedTask: PropTypes.string.isRequired,
+  selectedTask: PropTypes.instanceOf(Object).isRequired,
 };
 
 Task.defaultProps = {

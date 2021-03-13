@@ -8,7 +8,7 @@ function TaskContent({
   _id,
   title,
   createdAt,
-  lastUpdatedAt,
+  updatedAt,
   status,
   description,
   updateTaskAsync,
@@ -38,7 +38,7 @@ function TaskContent({
             </span>
             <span className="taskContent__meta--subText">
               <strong>Last Updated on</strong> -{' '}
-              {convertTimeStampToDate(lastUpdatedAt)}
+              {convertTimeStampToDate(updatedAt)}
             </span>
             <span className="taskContent__meta--subText">
               <strong>Status</strong> - {status}
@@ -51,7 +51,11 @@ function TaskContent({
         </div>
       </header>
       <article>
-        <textarea value={value} onChange={(e) => setValue(e.target.value)} />
+        <textarea
+          resize="none"
+          value={value}
+          onChange={(e) => setValue(e.target.value)}
+        />
       </article>
     </section>
   );
@@ -60,7 +64,7 @@ function TaskContent({
 TaskContent.propTypes = {
   _id: PropTypes.string,
   title: PropTypes.string,
-  lastUpdatedAt: PropTypes.string,
+  updatedAt: PropTypes.string,
   createdAt: PropTypes.string,
   status: PropTypes.string,
   description: PropTypes.string,
@@ -70,7 +74,7 @@ TaskContent.propTypes = {
 TaskContent.defaultProps = {
   _id: '',
   title: 'Enter Title Here',
-  lastUpdatedAt: '',
+  updatedAt: '',
   createdAt: '',
   status: '',
   description: 'Enter Description Here',
