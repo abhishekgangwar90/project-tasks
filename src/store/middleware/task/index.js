@@ -7,6 +7,8 @@ import {
   getAllTasksFailure,
   getAllTasksSuccess,
   updateTask,
+  updateTaskFailure,
+  updateTaskSuccess,
 } from '../../actions';
 import { parseError } from '../ErrorHandler';
 
@@ -28,7 +30,6 @@ export const getAllTasksAsync = () => (dispatch) => {
  */
 export const updateTaskAsync = (data) => (dispatch) => {
   dispatch(updateTask(data));
-  debugger;
   return patch(
     `${apiEndPoints.updateTask}/${data.id}`,
     {
@@ -41,6 +42,7 @@ export const updateTaskAsync = (data) => (dispatch) => {
       },
     }
   )
-    .then((res) => console.log(res.data))
-    .catch((err) => console.log(err.response));
+    .then((res) => res.data)
+    .then((res) => dispatch(updateTaskSuccess(res)))
+    .catch((err) => dispatch(updateTaskFailure(parseError(err))));
 };

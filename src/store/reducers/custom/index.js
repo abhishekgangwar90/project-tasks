@@ -17,7 +17,7 @@ function CustomReducer(state = initialState, { type, payload }) {
     case SET_SELECTED_TASK: {
       return {
         ...state,
-        selectedTask: payload.id,
+        selectedTask: payload,
       };
     }
 

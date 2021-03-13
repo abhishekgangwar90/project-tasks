@@ -79,9 +79,14 @@ const taskReducer = (state = initialState, { type, payload }) => {
     }
 
     case UPDATE_TASK_SUCCESS: {
-      const modifiedData = [];
+      let modifiedData = [];
       if (payload && payload._id) {
-        modifiedData.push(payload);
+        modifiedData = state.data.map((elm) => {
+          if (elm._id === payload._id) {
+            return payload;
+          }
+          return elm;
+        });
       }
       return {
         ...state,

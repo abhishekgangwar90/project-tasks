@@ -17,9 +17,8 @@ function TasksList({
   }, []);
 
   const handleTaskClick = (id) => {
-    setSelectedTaskAction({
-      id,
-    });
+    if (tasks && tasks.data)
+      setSelectedTaskAction(tasks.data.filter((elm) => elm._id === id)[0]);
   };
 
   if (tasks.isLoading) {
