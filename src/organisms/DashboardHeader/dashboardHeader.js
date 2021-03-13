@@ -1,11 +1,12 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import SearchBar from '../../atoms/Search';
 import UserProfilePic from '../../atoms/UserProfilePic';
 import './dashboardHeader.scss';
 
-function DashboardHeader() {
-  const onTitleSearch = () => {
-    console.log('hola');
+function DashboardHeader({ setSearchedTitleAction }) {
+  const onTitleSearch = (e) => {
+    setSearchedTitleAction({ searchTerm: e.target.value });
   };
 
   return (
@@ -23,5 +24,9 @@ function DashboardHeader() {
     </header>
   );
 }
+
+DashboardHeader.propTypes = {
+  setSearchedTitleAction: PropTypes.func.isRequired,
+};
 
 export default DashboardHeader;
