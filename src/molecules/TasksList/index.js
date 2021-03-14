@@ -4,10 +4,11 @@ import { getAllTasksAsync } from '../../store/middleware/task';
 import { setSelectedTaskAction } from '../../store/actions';
 
 const mapStateToProps = ({ task, custom }) => {
-  const { selectedFilter, selectedTask } = custom;
+  const { selectedFilter, selectedTask, searchTerm } = custom;
   return {
     selectedFilter,
     selectedTask,
+    searchTerm,
     tasks: task,
   };
 };

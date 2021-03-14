@@ -1,3 +1,4 @@
+/* eslint-disable no-debugger */
 /* eslint-disable no-underscore-dangle */
 import React, { useEffect } from 'react';
 import PropTypes from 'prop-types';
@@ -7,11 +8,14 @@ import './tasksList.scss';
 
 function TasksList({
   tasks,
+  searchTerm,
   selectedTask,
   selectedFilter,
   getAllTasksAsync,
   setSelectedTaskAction,
 }) {
+  const regex = new RegExp(searchTerm, 'i');
+
   useEffect(() => {
     getAllTasksAsync();
   }, []);
@@ -39,6 +43,12 @@ function TasksList({
       }
       return true;
     })
+    .filter((elm) => {
+      if (searchTerm) {
+        return regex.test(elm.title, 'i');
+      }
+      return true;
+    })
     .reverse()
     .map((elm) => {
       return (
@@ -59,6 +69,7 @@ TasksList.defaultProps = {
     error: '',
   },
   selectedTask: {},
+  searchTerm: '',
 };
 
 TasksList.propTypes = {
@@ -69,6 +80,7 @@ TasksList.propTypes = {
   }),
   selectedTask: PropTypes.instanceOf(Object),
   selectedFilter: PropTypes.string.isRequired,
+  searchTerm: PropTypes.string,
   getAllTasksAsync: PropTypes.func.isRequired,
   setSelectedTaskAction: PropTypes.func.isRequired,
 };
