@@ -29,19 +29,13 @@ export const getAllTasksAsync = () => (dispatch) => {
  * @param {*} id
  */
 export const updateTaskAsync = (data) => (dispatch) => {
+  const { id, ...reqData } = data;
   dispatch(updateTask(data));
-  return patch(
-    `${apiEndPoints.updateTask}/${data.id}`,
-    {
-      title: data.title,
-      description: data.description,
+  return patch(`${apiEndPoints.updateTask}/${data.id}`, reqData, {
+    headers: {
+      requireAuth: true,
     },
-    {
-      headers: {
-        requireAuth: true,
-      },
-    }
-  )
+  })
     .then((res) => res.data)
     .then((res) => dispatch(updateTaskSuccess(res)))
     .catch((err) => dispatch(updateTaskFailure(parseError(err))));

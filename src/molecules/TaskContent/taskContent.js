@@ -1,3 +1,4 @@
+/* eslint-disable no-debugger */
 import React, { useEffect } from 'react';
 import PropTypes from 'prop-types';
 import './taskContent.scss';
@@ -19,12 +20,20 @@ function TaskContent({
     setValue(description);
   }, [_id]);
 
-  const handleTaskUpdate = () => {
-    updateTaskAsync({
-      id: _id,
-      title,
-      description: value,
-    });
+  const handleTaskUpdate = (isCompleteAction = false, isTaskComplete) => {
+    if (isCompleteAction) {
+      updateTaskAsync({
+        id: _id,
+        isComplete: isTaskComplete,
+      });
+    } else {
+      debugger;
+      updateTaskAsync({
+        id: _id,
+        title,
+        description: value,
+      });
+    }
   };
 
   return (
@@ -47,7 +56,10 @@ function TaskContent({
         </div>
         <div className="taskContent__action">
           <Badge title="Save" onClick={handleTaskUpdate} />
-          <Badge title="Mark As Done" />
+          <Badge
+            title="Mark As Done"
+            onClick={() => handleTaskUpdate(true, true)}
+          />
         </div>
       </header>
       <article>
