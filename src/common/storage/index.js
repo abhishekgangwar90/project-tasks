@@ -13,12 +13,11 @@ export const getFromStorage = (key = DEFAULT_KEY) => {
   return Cookies.getItem(key);
 };
 
-export const deleteStorage = (key = DEFAULT_KEY) => {
+export const deleteFromStorage = (key = DEFAULT_KEY) => {
   return Cookies.removeItem(key);
 };
 
 export const getAuthDataFromStorage = () => {
-  console.log('Reading data from cookies');
   const authData = JSON.parse(getFromStorage());
   return (
     authData &&

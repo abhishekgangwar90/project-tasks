@@ -3,6 +3,9 @@ import {
   SIGN_IN,
   SIGN_IN_FAILURE,
   SIGN_IN_SUCCESS,
+  SIGN_OUT,
+  SIGN_OUT_FAILURE,
+  SIGN_OUT_SUCCESS,
   SIGN_UP,
   SIGN_UP_FAILURE,
   SIGN_UP_SUCCESS,
@@ -46,6 +49,27 @@ export const signInSuccessAction = (payload) => {
 export const signInFailureAction = (payload) => {
   return {
     type: SIGN_IN_FAILURE,
+    payload,
+  };
+};
+
+export const signOutAction = (payload) => {
+  return {
+    type: SIGN_OUT,
+    payload,
+  };
+};
+
+export const signOutSuccessAction = (payload) => {
+  return {
+    type: SIGN_OUT_SUCCESS,
+    payload,
+  };
+};
+
+export const signOutFailureAction = (payload) => {
+  return {
+    type: SIGN_OUT_FAILURE,
     payload,
   };
 };

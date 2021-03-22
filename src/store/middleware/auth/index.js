@@ -9,10 +9,13 @@ import {
   signInAction,
   signInSuccessAction,
   signInFailureAction,
+  signOutAction,
+  signOutSuccessAction,
+  signOutFailureAction,
 } from '../../actions';
 import { apiEndPoints } from '../../../constants/apiEndPoints';
 import { parseError } from '../ErrorHandler';
-import { setDataInStorage } from '../../../common/storage';
+import { setDataInStorage, deleteFromStorage } from '../../../common/storage';
 
 export function signUpActionAsync(data) {
   return (dispatch) => {
@@ -44,4 +47,22 @@ export function signInActionAsync(data) {
       })
       .catch((err) => dispatch(signInFailureAction(parseError(err))));
   };
+}
+
+
+export function singOutActionAsync(){
+  return (dispatch) => {
+    dispatch(signOutAction());
+
+    return post(apiEndPoints.signOut)
+    .then((res) => res.data)
+    .then((res) =>{
+      deleteFromStorage({
+        isLoggedIn: false,
+        authToke: null
+      })
+      dispatch(signOutSuccessAction(res))
+    })
+    .catch((err) => dispatch(signOutFailureAction(parseError(err))))
+  }
 }
